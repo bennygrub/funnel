@@ -1,0 +1,23 @@
+= form_for(@main_page) do |f|
+  - if @main_page.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@main_page.errors.count, "error")
+        prohibited this main_page from being saved:
+      %ul
+        - @main_page.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :home
+    %br/
+    = f.text_field :home
+  .field
+    = f.label :contact
+    %br/
+    = f.text_field :contact
+  .field
+    = f.label :about
+    %br/
+    = f.text_field :about
+  .actions
+    = f.submit
